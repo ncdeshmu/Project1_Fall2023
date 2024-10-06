@@ -1,0 +1,91 @@
+---
+title: "Project1_Fall2023"
+format: html
+editor: visual
+---
+
+---
+#According to the project instructions, we are going to query the Public Use Microdata Sample (PUMS) Census API. This API gives fictitious person-level data.
+
+#We will first read in the URL of the Census data using an httr:GET().
+---
+
+```{r}
+#URL <- "https://api.census.gov/data/2022/acs/acs1/pums/variables.html"
+#Now use GET from httr package
+#install.packages('httr', keep_outputs = TRUE, repos='https://ftp.fau.de/cran/')
+#census_id <- httr::GET(URL)
+```
+
+**We will then be using a "helper" function, which can be used to accomplish a short task.**
+
+```{r}
+#//a "helper" function
+#check_vars <- function(user_vars, geography, year)
+ #{
+   #year_range <- seq(2010,2022, by = 1)
+    #if (!year %in% year_range){
+     #stop(paste(year), "is not an allowed value for the year variable. Options are between 2010 - 2022")
+    #} 
+  #else if (year == 2020){
+    #stop(paste(year), " is not available from census.gov")
+  #}
+  #else{
+    #return(TRUE)
+  #}
+#}
+```
+
+**We then have to create another function to query the API that allows the user to change some items.**
+
+```{r}
+#my_get_api_data_func <- function(year=2022, num_vars=AGEP, PWGTP, chr_vars=SEX, geography=ALL, select(API)){
+#options = AGEP, GASP, GRPIP, JWAP (time), JWDP (time), and
+#JWMNP
+#return(expression)
+#var_check <- check_vars(user_vars,geography,year)
+ 
+#//call the specified return_tibble function
+#return_tibble
+ 
+#return(something)
+#specify multiple years of data
+#year_range <- seq(2010,2022, by = 1)
+ 
+#}
+```
+
+Writing a Generic Function for Summarizing
+
+The ideas around object-oriented programming were briefly discussed. We will be using plot() functions.
+
+```{r}
+#Run these in your console
+#plot.function #what is used for a class = function
+#getS3method("plot","data.frame") #what is used for a class = data frame
+```
+
+```{r}
+##plot
+## function (x, y, ...)
+## UseMethod("plot")
+## <bytecode: 0x00000000133fc528>
+## <environment: namespace:base>
+```
+
+```{r}
+#class(your_tibble) <- c("census", class(your_tibble)
+```
+
+For the census summary method, we will then write a function that produces means and standard deviations for our numeric variable(s) and counts for our categorical variable(s). • This function should take three arguments: the tibble with class census, the numeric variable(s) to summarize, the categorical variable(s) to summarize.
+
+```{r}
+#summary.census <- function(class census, numeric_vector, weight_vector ){#sum(numeric_vector*weight_vector)/sum(weight_vector), sqrt(sum(numeric_vectorˆ2*weight_vector)/sum(weight_vector)-sample_meanˆ2)}
+```
+
+```{r}
+#library(ggplot2) # put this in your setup code chunk
+#ggplot(_your_census_tibble_or_modification_,
+#aes(x = get(cat_var), y = get(num_var), weight = PWGTP)) +
+#geom_boxplot()
+```
